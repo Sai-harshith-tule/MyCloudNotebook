@@ -1,11 +1,8 @@
 import React from "react";
-import { useContext } from "react";
-import Notecontext from "../context/notes/noteContext";
+import Notes from "./Notes";
 
 const Home = () => {
-  const context = useContext(Notecontext);
-  const { notes, setNotes } = context;
-  // eslint-disable-next-line
+  
   return (
     <div>
       <div className="container mt-4">
@@ -50,12 +47,7 @@ const Home = () => {
           </button>
         </form>
       </div>
-      <div className="container mt-3">
-        <h1>Your Notes</h1>
-        {notes.map((i)=>{
-          return i.title+" "
-        })}
-      </div>
+      <Notes/>
     </div>
   );
 };
