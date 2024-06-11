@@ -1,10 +1,10 @@
-import React, {useEffect} from "react";
+//import React, {useEffect} from "react";
 import {Link, useLocation} from "react-router-dom";
 const Navbar = () => {
   let location = useLocation();
-  useEffect(()=>{
-    console.log(location.pathname);
-  },[location]);//get the current location of user just to make the buttons darker as of now
+  // useEffect(()=>{
+  //   console.log(location.pathname);
+  // },[location]);//get the current location of user just to make the buttons darker as of now
 
   return (
     <>
