@@ -19,10 +19,11 @@ router.post(
     }),
   ],
   async (req, res) => {
+    let success = false;
     //if there are errors return bad request 400 with errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ success, errors: errors.array() });
     }
 
     try {
@@ -31,7 +32,7 @@ router.post(
       console.log(user);
       //if exists print the message
       if (user) {
-        return res.status(400).json({ errors: "Email already exists!" });
+        return res.status(400).json({ success, errors: "Email already exists!" });
       }
 
       //gen salt and sec password using bcryptjs package
@@ -52,7 +53,8 @@ router.post(
       };
       //using jwtsecret and data create authorization token
       const authToken = jwt.sign(data, JWT_SECRET);
-      res.json({ authToken }); //send auth token as response to the user
+      success = true
+      res.json({ success, authToken }); //send auth token as response to the user
 
       //res.json(user)
     } catch (error) {
