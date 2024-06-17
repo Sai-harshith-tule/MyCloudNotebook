@@ -31,21 +31,21 @@ const Login = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" value={credentials.email} onChange={onChange} id="email" name='email' aria-describedby="emailHelp" />
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+            <form onSubmit={handleSubmit} className="container">
+                <div className="row justify-content-center">
+                    <div className="col-md-6">
+                        <div className="mb-3">
+                            <label htmlFor="email" className="form-label fs-4">Email address</label>
+                            <input type="email" className="form-control fs-4" value={credentials.email} onChange={onChange} id="email" name='email' aria-describedby="emailHelp" />
+                            <div id="emailHelp" className="form-text fs-6"><i>We'll never share your email with anyone else.</i></div>
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="password" className="form-label fs-4">Password</label>
+                            <input type="password" className="form-control fs-4" value={credentials.password} onChange={onChange} name='password' id="password" />
+                        </div>
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                    </div>
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control" value={credentials.password} onChange={onChange} name='password' id="password" />
-                </div>
-                <div className="mb-3 form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                    <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </>
     );
